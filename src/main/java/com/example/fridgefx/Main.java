@@ -1,32 +1,49 @@
 package com.example.fridgefx;
 
+import com.example.fridgefx.model.Ingredient;
+import com.example.fridgefx.model.Recipe;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Main extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        primaryStage.setTitle("JavaFX Demo");
+public class Main extends Application implements EventHandler<ActionEvent> {
+    Stage window;
 
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(event -> System.out.println("Hello World!"));
+    Grids grids = new Grids();
+    private List<Recipe> recipes = new ArrayList<>();
 
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        primaryStage.setScene(new Scene(root, 300, 250));
-        primaryStage.show();
-    }
+    Button enterButton;
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        recipes.add(new Recipe("recipe1", new ArrayList<>(), ".com"));
+        recipes.add(new Recipe("recipe2", new ArrayList<>(), ".net"));
+
+        grids.listViewGrid(primaryStage, recipes);
+        //grids.AddItemGrid(recipes, primaryStage);
+    }
+
+    @Override
+    public void handle(ActionEvent event){
+//        if (event.getSource() == enterButton) {
+//            System.out.println("Bush did 9/11");
+//        }
     }
 }
