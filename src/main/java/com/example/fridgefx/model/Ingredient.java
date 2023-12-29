@@ -1,19 +1,19 @@
-package me.model;
+package com.example.fridgefx.model;
 
 public class Ingredient {
     private String name;
 
-    private int quantity;
+    private Double quantity;
 
     private String unit;
 
-    public Ingredient(String name, int quantity, String unit){
+    public Ingredient(String name, double quantity, String unit){
         this.name = name;
         this.unit = unit;
         this.quantity = quantity;
     }
 
-    public static Ingredient build(String name, int quantity, String unit){
+    public static Ingredient build(String name, double quantity, String unit){
         return new Ingredient(name, quantity, unit);
     }
 }

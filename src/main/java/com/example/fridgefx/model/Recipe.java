@@ -1,18 +1,15 @@
-package me.model;
-
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
+package com.example.fridgefx.model;
 
 import java.util.List;
 import java.util.UUID;
 
-@Getter
-@Setter
-@Component
 public class Recipe {
 
     private String id;
+
+    public String getName() {
+        return name;
+    }
 
     private String name;
 
