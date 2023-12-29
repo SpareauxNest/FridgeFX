@@ -62,6 +62,7 @@ public class Grids {
         window.show();
     }
     public void listViewGrid(Stage primaryStage, List<Recipe> recipes){
+
         ListView<String> listView = new ListView<>();
 
         listView.getItems().addAll(recipes.stream().map(Recipe::getName).collect(Collectors.toList()));
