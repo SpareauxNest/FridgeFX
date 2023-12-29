@@ -3,7 +3,9 @@ package com.example.fridgefx;
 
 import com.example.fridgefx.model.Ingredient;
 import com.example.fridgefx.model.Recipe;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -79,5 +81,16 @@ public class Grids {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    public void testing(Stage primaryStage){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("AddIngredient.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
