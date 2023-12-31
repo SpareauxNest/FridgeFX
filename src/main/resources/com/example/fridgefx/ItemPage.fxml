@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="624.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fridgefx.Controller">
+   <children>
+      <Label layoutX="398.0" layoutY="14.0" text="Label">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <ListView layoutX="14.0" layoutY="64.0" prefHeight="549.0" prefWidth="298.0" />
+      <MediaView fitHeight="500.0" fitWidth="500.0" layoutX="335.0" layoutY="81.0" />
+   </children>
+</AnchorPane>
