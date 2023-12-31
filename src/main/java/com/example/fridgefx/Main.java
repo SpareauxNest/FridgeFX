@@ -36,8 +36,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         recipes.add(new Recipe("recipe1", new ArrayList<>(), ".com"));
         recipes.add(new Recipe("recipe2", new ArrayList<>(), ".net"));
 
-        grids.listViewGrid(primaryStage, recipes);
-        //grids.AddItemGrid(recipes, primaryStage);
+        //grids.testing(primaryStage);
+        //grids.listViewGrid(primaryStage, recipes);
+        grids.addItemGrid(primaryStage, recipes);
     }
 
     @Override
