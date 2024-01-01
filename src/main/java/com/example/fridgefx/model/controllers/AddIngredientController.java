@@ -1,4 +1,4 @@
-package com.example.fridgefx;
+package com.example.fridgefx.model.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class AddIngredientController implements Initializable {
 
     @FXML
     private ChoiceBox<String> unitBox;
