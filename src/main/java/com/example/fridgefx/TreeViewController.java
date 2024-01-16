@@ -1,5 +1,6 @@
-package com.example.fridgefx.model.controllers;
+package com.example.fridgefx;
 
+import com.example.fridgefx.model.controllers.AddRecipeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,7 @@ public class TreeViewController implements Initializable {
             root = loader.load();
             AddRecipeController addRecipeController = loader.getController();
             //root = FXMLLoader.load(getClass().getResource("AddRecipe.fxml"));
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
