@@ -37,7 +37,6 @@ public class TreeViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipe.fxml"));
             root = loader.load();
             AddRecipeController addRecipeController = loader.getController();
-            //root = FXMLLoader.load(getClass().getResource("AddRecipe.fxml"));
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
