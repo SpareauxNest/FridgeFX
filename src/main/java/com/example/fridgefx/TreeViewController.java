@@ -1,6 +1,5 @@
 package com.example.fridgefx;
 
-import com.example.fridgefx.model.controllers.AddRecipeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
