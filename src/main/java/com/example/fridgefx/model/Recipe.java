@@ -15,6 +15,7 @@ public class Recipe {
 
     private List<Ingredient> ingredients;
 
+    public String getLink() {return link;}
     private String link;
 
     public Recipe(String name, List<Ingredient> ingredients, String link) {
