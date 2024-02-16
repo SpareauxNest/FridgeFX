@@ -1,4 +1,4 @@
-package com.example.fridgefx;
+package com.example.fridgefx.model.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,7 +42,7 @@ public class AddIngredientController implements Initializable {
 
     public void submitIngredient(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipeController"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/AddRecipe.fxml"));
             root = loader.load();
             AddRecipeController addRecipeController = loader.getController();
 
@@ -57,7 +57,7 @@ public class AddIngredientController implements Initializable {
 
     public void backToRecipe(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipeController"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/AddRecipe.fxml"));
             root = loader.load();
             AddRecipeController addRecipeController = loader.getController();
 

@@ -1,4 +1,4 @@
 package com.example.fridgefx.model.controllers;
 
-public class thing {
+public class RecipePageController {
 }

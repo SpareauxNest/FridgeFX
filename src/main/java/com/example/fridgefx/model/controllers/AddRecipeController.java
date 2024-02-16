@@ -1,4 +1,4 @@
-package com.example.fridgefx;
+package com.example.fridgefx.model.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,7 @@ public class AddRecipeController {
 
     public void AddNewIngredient(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddIngredient.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/AddIngredient.fxml"));
             root = loader.load();
             AddIngredientController addIngredientController = loader.getController();
 
@@ -29,9 +29,9 @@ public class AddRecipeController {
 
     public void backToList(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeTreeView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeTreeView.fxml"));
             root = loader.load();
-            TreeViewController treeViewController = loader.getController();
+            ListViewController listViewController = loader.getController();
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -44,9 +44,9 @@ public class AddRecipeController {
 
     public void submitRecipe(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeTreeView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeTreeView.fxml"));
             root = loader.load();
-            TreeViewController treeViewController = loader.getController();
+            ListViewController listViewController = loader.getController();
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

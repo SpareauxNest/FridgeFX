@@ -1,4 +1,4 @@
-package com.example.fridgefx;
+package com.example.fridgefx.model.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,16 +8,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TreeViewController implements Initializable {
+public class ListViewController implements Initializable {
 
     @FXML
-    TreeView treeView;
+    ListView listView;
 
     @FXML
     Button newRecipeButton;
@@ -32,7 +33,7 @@ public class TreeViewController implements Initializable {
 
     public void AddNewRecipe(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipe.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/AddRecipe.fxml"));
             root = loader.load();
             AddRecipeController addRecipeController = loader.getController();
 
@@ -44,4 +45,5 @@ public class TreeViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }
