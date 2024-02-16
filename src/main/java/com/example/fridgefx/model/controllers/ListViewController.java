@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ListViewController implements Initializable {
@@ -36,8 +37,7 @@ public class ListViewController implements Initializable {
         recipes.stream().forEach(recipe -> {
             listView.getItems().add(recipe.getName());
         });
-        //listView.getItems().add(recipes.stream().map(Recipe::getName).toString());
-        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     public void AddNewRecipe(ActionEvent event) {
@@ -60,8 +60,24 @@ public class ListViewController implements Initializable {
     public void RecipeSubmit(List<Recipe> recipes){
         this.recipes = recipes;
         recipes.stream().forEach(recipe -> {
-            listView.getItems().add(recipe.getName());
+            listView.getItems().add(recipe.getName()+" "+recipe.getLink());
         });
+    }
+
+    public void DeleteRecipe(){
+        String killString = listView.getSelectionModel().getSelectedItem();
+        String[] components = killString.split(" ");
+        Optional<Recipe> killRecipe;
+        if(components.length ==2) {
+            killRecipe = recipes.stream().filter(recipe -> recipe.getLink().equals(components[1]) && recipe.getName().equals(components[0])).findFirst();
+        }
+        else{
+            killRecipe = recipes.stream().filter(recipe -> recipe.getName().equals(components[0])).findFirst();
+        }
+        if(killRecipe.isPresent()){
+            recipes.remove(killRecipe);
+            listView.getItems().remove(killString);
+        }
     }
 
 }
