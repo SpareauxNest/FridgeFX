@@ -14,10 +14,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ListViewController implements Initializable {
 
@@ -67,14 +64,14 @@ public class ListViewController implements Initializable {
     public void DeleteRecipe(){
         String killString = listView.getSelectionModel().getSelectedItem();
         String[] components = killString.split(" ");
-        Optional<Recipe> killRecipe;
+        Recipe killRecipe;
         if(components.length ==2) {
-            killRecipe = recipes.stream().filter(recipe -> recipe.getLink().equals(components[1]) && recipe.getName().equals(components[0])).findFirst();
+            killRecipe = recipes.stream().filter(recipe -> recipe.getLink().equals(components[1]) && recipe.getName().equals(components[0])).findFirst().orElse(null);
         }
         else{
-            killRecipe = recipes.stream().filter(recipe -> recipe.getName().equals(components[0])).findFirst();
+            killRecipe = recipes.stream().filter(recipe -> recipe.getName().equals(components[0])).findFirst().orElse(null);
         }
-        if(killRecipe.isPresent()){
+        if(Objects.nonNull(killRecipe)){
             recipes.remove(killRecipe);
             listView.getItems().remove(killString);
         }

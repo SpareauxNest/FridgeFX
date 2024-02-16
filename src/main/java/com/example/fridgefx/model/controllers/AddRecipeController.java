@@ -27,6 +27,10 @@ public class AddRecipeController {
     @FXML
     private TextField recipeLinkField;
 
+    public void sendListToRecipeController(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
     public void AddNewIngredient(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/AddIngredient.fxml"));
@@ -74,9 +78,5 @@ public class AddRecipeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void sendListToRecipeController(List<Recipe> recipes) {
-        this.recipes = recipes;
     }
 }
