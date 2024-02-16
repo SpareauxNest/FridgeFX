@@ -57,13 +57,13 @@ public class ListViewController implements Initializable {
     public void RecipeSubmit(List<Recipe> recipes){
         this.recipes = recipes;
         recipes.stream().forEach(recipe -> {
-            listView.getItems().add(recipe.getName()+" "+recipe.getLink());
+            listView.getItems().add(recipe.getName()+"          "+recipe.getLink());
         });
     }
 
     public void DeleteRecipe(){
         String killString = listView.getSelectionModel().getSelectedItem();
-        String[] components = killString.split(" ");
+        String[] components = killString.split("          ");
         Recipe killRecipe;
         if(components.length ==2) {
             killRecipe = recipes.stream().filter(recipe -> recipe.getLink().equals(components[1]) && recipe.getName().equals(components[0])).findFirst().orElse(null);
