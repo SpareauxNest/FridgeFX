@@ -5,4 +5,6 @@ module com.example.fridgefx {
 
     opens com.example.fridgefx to javafx.fxml;
     exports com.example.fridgefx;
+    exports com.example.fridgefx.model.controllers;
+    opens com.example.fridgefx.model.controllers to javafx.fxml;
 }

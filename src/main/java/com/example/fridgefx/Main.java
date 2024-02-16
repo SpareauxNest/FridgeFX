@@ -5,7 +5,9 @@ import com.example.fridgefx.model.Recipe;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
+public class Main extends Application{
     Stage window;
 
     Grids grids = new Grids();
@@ -36,15 +38,13 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         recipes.add(new Recipe("recipe1", new ArrayList<>(), ".com"));
         recipes.add(new Recipe("recipe2", new ArrayList<>(), ".net"));
 
-        //grids.testing(primaryStage);
-        //grids.listViewGrid(primaryStage, recipes);
-        grids.addItemGrid(primaryStage, recipes);
-    }
-
-    @Override
-    public void handle(ActionEvent event){
-//        if (event.getSource() == enterButton) {
-//            System.out.println("Bush did 9/11");
-//        }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("RecipeTreeView.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

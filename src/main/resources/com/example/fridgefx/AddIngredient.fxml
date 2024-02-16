@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="82.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fridgefx.Controller">
+<AnchorPane prefHeight="82.0" prefWidth="539.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fridgefx.model.controllers.AddIngredientController">
    <children>
       <TextField fx:id="ingredientField" layoutX="14.0" layoutY="39.0" prefHeight="21.0" prefWidth="197.0" />
       <Button fx:id="ingredientButton" layoutX="391.0" layoutY="39.0" mnemonicParsing="false" onAction="#submitIngredient" text="Submit" />
@@ -15,5 +15,6 @@
       <Label layoutX="85.0" layoutY="14.0" text="Ingredient" />
       <Label layoutX="237.0" layoutY="14.0" text="Quantity" />
       <Label layoutX="328.0" layoutY="14.0" text="Unit" />
+      <Button fx:id="baackToRecipeButton" layoutX="473.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToRecipe" text="Back" textFill="#d00000" />
    </children>
 </AnchorPane>
