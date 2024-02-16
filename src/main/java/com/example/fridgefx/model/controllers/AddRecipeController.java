@@ -29,7 +29,7 @@ public class AddRecipeController {
 
     public void backToList(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeTreeView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeListView.fxml"));
             root = loader.load();
             ListViewController listViewController = loader.getController();
 
@@ -44,7 +44,7 @@ public class AddRecipeController {
 
     public void submitRecipe(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeTreeView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeListView.fxml"));
             root = loader.load();
             ListViewController listViewController = loader.getController();
 

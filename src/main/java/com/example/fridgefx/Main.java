@@ -39,7 +39,7 @@ public class Main extends Application{
         recipes.add(new Recipe("recipe2", new ArrayList<>(), ".net"));
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("RecipeTreeView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("RecipeListView.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
