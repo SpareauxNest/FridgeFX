@@ -77,4 +77,16 @@ public class ListViewController implements Initializable {
         }
     }
 
+    public void viewRecipe(){
+        String selectedString = listView.getSelectionModel().getSelectedItem();
+        String[] components = selectedString.split("          ");
+        Recipe selectedRecipe;
+        if(components.length ==2) {
+            selectedRecipe = recipes.stream().filter(recipe -> recipe.getLink().equals(components[1]) && recipe.getName().equals(components[0])).findFirst().orElse(null);
+        }
+        else{
+            selectedRecipe = recipes.stream().filter(recipe -> recipe.getName().equals(components[0])).findFirst().orElse(null);
+        }
+    }
+
 }
