@@ -76,6 +76,7 @@ public class AddRecipeController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeListView.fxml"));
             root = loader.load();
             ListViewController listViewController = loader.getController();
+            listViewController.RecipeSubmit(recipes);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

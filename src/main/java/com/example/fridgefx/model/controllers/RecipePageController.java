@@ -1,8 +1,10 @@
 package com.example.fridgefx.model.controllers;
 
 import com.example.fridgefx.model.Ingredient;
+import com.example.fridgefx.model.Recipe;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -15,19 +17,29 @@ import java.util.ResourceBundle;
 public class RecipePageController implements Initializable {
 
     @FXML
-    private TextField recipeTitle;
+    private Label recipeTitle;
 
     @FXML
-    private TreeView treeView;
+    private TreeView treeView = new TreeView<>();
 
     private List<Ingredient> ingredients = new ArrayList<>();
+    private List<Recipe> recipes = new ArrayList<>();
+    private Recipe recipe;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        TreeItem<String> header = new TreeItem<>("Ingredients");
+        TreeItem<String> rootItem = new TreeItem<>("Ingredients");
+        treeView.setRoot(rootItem);
         ingredients.stream().forEach(ingredient -> {
-            header.getChildren().addAll(new TreeItem<>(ingredient.getQuantity()+" "+ingredient.getUnit()+" "+ingredient.getName()));
+            rootItem.getChildren().addAll(new TreeItem<>(ingredient.getQuantity()+" "+ingredient.getUnit()+" "+ingredient.getName()));
         });
-        treeView.setRoot(header);
+
+        recipeTitle.setText(recipe.getName());
+    }
+
+    public void sendRecipesToPage(List<Recipe> recipes, Recipe selectedRecipe) {
+        this.recipes = recipes;
+        this.recipe = selectedRecipe;
+        this.ingredients = selectedRecipe.getIngredients();
     }
 }

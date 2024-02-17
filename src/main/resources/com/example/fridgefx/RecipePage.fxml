@@ -4,7 +4,6 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.WebView?>
 
 <AnchorPane prefHeight="624.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fridgefx.model.controllers.RecipePageController">
    <children>
@@ -14,6 +13,5 @@
          </font>
       </Label>
       <TreeView fx:id="ingredientTree" layoutX="14.0" layoutY="64.0" prefHeight="542.0" prefWidth="296.0" />
-      <WebView fx:id="webView" layoutX="338.0" layoutY="64.0" prefHeight="542.0" prefWidth="517.0" />
    </children>
 </AnchorPane>

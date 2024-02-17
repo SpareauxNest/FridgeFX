@@ -77,7 +77,7 @@ public class ListViewController implements Initializable {
         }
     }
 
-    public void viewRecipe(){
+    public void ViewRecipe(ActionEvent event){
         String selectedString = listView.getSelectionModel().getSelectedItem();
         String[] components = selectedString.split("          ");
         Recipe selectedRecipe;
@@ -87,6 +87,22 @@ public class ListViewController implements Initializable {
         else{
             selectedRecipe = recipes.stream().filter(recipe -> recipe.getName().equals(components[0])).findFirst().orElse(null);
         }
+        if(Objects.nonNull(selectedRecipe)){
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipePage.fxml"));
+        root = loader.load();
+
+        RecipePageController recipePageController = loader.getController();
+        recipePageController.sendRecipesToPage(recipes, selectedRecipe);
+
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        }
+        catch (Exception e) {
+        e.printStackTrace();
+        }}
     }
 
 }
