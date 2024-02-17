@@ -2,6 +2,7 @@ package com.example.fridgefx;
 
 import com.example.fridgefx.model.Ingredient;
 import com.example.fridgefx.model.Recipe;
+import com.example.fridgefx.model.controllers.ListViewController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,11 +36,19 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        recipes.add(new Recipe("recipe1", new ArrayList<>(), ".com"));
-        recipes.add(new Recipe("recipe2", new ArrayList<>(), ".net"));
+        List<Ingredient> ingredients = new ArrayList<>();
+        ingredients.add(new Ingredient("Garlic", 1, "clove"));
+        ingredients.add(new Ingredient("Butter", 2, "tbs"));
+
+        recipes.add(new Recipe("Garlic Butter", ingredients, "italian.com"));
+        recipes.add(new Recipe("Buttered Garlic", ingredients, "badbreath.net"));
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("RecipeListView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fridgefx/RecipeListView.fxml"));
+            Parent root = loader.load();
+            ListViewController listViewController = loader.getController();
+            listViewController.RecipeSubmit(recipes);
+
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

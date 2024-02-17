@@ -3,6 +3,18 @@ package com.example.fridgefx.model;
 public class Ingredient {
     private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
     private Double quantity;
 
     private String unit;
