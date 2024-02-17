@@ -93,7 +93,8 @@ public class ListViewController implements Initializable {
         root = loader.load();
 
         RecipePageController recipePageController = loader.getController();
-        recipePageController.sendRecipesToPage(recipes, selectedRecipe);
+        recipePageController.SendRecipesToPage(recipes, selectedRecipe);
+        recipePageController.SetUp();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
