@@ -13,7 +13,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +97,8 @@ public class AddRecipeController implements Initializable {
             root = loader.load();
             ListViewController listViewController = loader.getController();
 
-            recipes.add(new Recipe(recipeNameField.getText() , ingredients, recipeLinkField.getText()));
+            Recipe recipe = new Recipe(recipeNameField.getText() , ingredients, recipeLinkField.getText());
+            recipes.add(recipe);
 
             listViewController.RecipeSubmit(recipes);
 
@@ -101,6 +106,8 @@ public class AddRecipeController implements Initializable {
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+            listViewController.saveData();
         } catch (Exception e) {
             e.printStackTrace();
         }

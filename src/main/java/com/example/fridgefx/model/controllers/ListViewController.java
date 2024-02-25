@@ -13,6 +13,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -75,6 +80,7 @@ public class ListViewController implements Initializable {
             recipes.remove(killRecipe);
             listView.getItems().remove(killString);
         }
+        saveData();
     }
 
     public void ViewRecipe(ActionEvent event){
@@ -106,4 +112,35 @@ public class ListViewController implements Initializable {
         }}
     }
 
+    public void saveData(){
+        JSONArray dataArray = new JSONArray();
+        JSONObject data = new JSONObject();
+        recipes.stream().forEach(recipe -> {
+            JSONArray ingredientArray = new JSONArray();
+            recipe.getIngredients().stream().forEach(ingredient -> {
+                JSONObject object = new JSONObject();
+                object.put("name", ingredient.getName());
+                object.put("quantity", ingredient.getQuantity());
+                object.put("unit", ingredient.getUnit());
+                ingredientArray.add(object);
+            });
+            JSONObject jsonRecipe = new JSONObject();
+            jsonRecipe.put("id", recipe.getId());
+            jsonRecipe.put("name", recipe.getName());
+            jsonRecipe.put("ingredients", ingredientArray);
+            jsonRecipe.put("link", recipe.getLink());
+
+            dataArray.add(jsonRecipe);
+            data.put("data", dataArray);
+        });
+        try{
+            FileWriter file = new FileWriter("data.json");
+            file.write(data.toJSONString());
+            file.flush();
+            file.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }

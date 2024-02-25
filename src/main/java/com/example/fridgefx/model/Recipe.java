@@ -7,6 +7,10 @@ public class Recipe {
 
     private String id;
 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
