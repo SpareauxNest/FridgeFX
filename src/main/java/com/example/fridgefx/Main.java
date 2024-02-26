@@ -21,13 +21,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Main extends Application{
-    Stage window;
-
-    Grids grids = new Grids();
     private List<Recipe> recipes = new ArrayList<>();
-
-    Button enterButton;
-
     public static void main(String[] args) {
         launch(args);
     }
