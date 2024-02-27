@@ -29,13 +29,6 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-//        List<Ingredient> ingredients = new ArrayList<>();
-//        ingredients.add(new Ingredient("Garlic", 1, "clove"));
-//        ingredients.add(new Ingredient("Butter", 2, "tbs"));
-//
-//        recipes.add(new Recipe("Garlic Butter", ingredients, "italian.com"));
-//        recipes.add(new Recipe("Buttered Garlic", ingredients, "badbreath.net"));
-
         JSONParser parser = new JSONParser();
         Reader reader = new FileReader("data.json");
 
